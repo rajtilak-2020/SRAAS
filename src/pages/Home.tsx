@@ -96,17 +96,17 @@ const Home = () => {
               {
                 title: 'Weather Report',
                 description: 'Real-time weather insights tailored to your farm location with 7-day forecasts and agricultural recommendations.',
-                image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg',
+                image: 'weatherreport.png',
               },
               {
                 title: 'Soil Analysis',
                 description: 'Data-driven soil health monitoring with nutrient analysis and personalized fertilizer recommendations.',
-                image: 'https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg',
+                image: 'soilanalysys.jpg',
               },
               {
                 title: 'Early Alert System',
                 description: 'Timely warnings for floods, pests, and locust attacks to protect your crops before damage occurs.',
-                image: 'https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg',
+                image: 'weatherwarning.jpg',
               },
             ].map((service, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">

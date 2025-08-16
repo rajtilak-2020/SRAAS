@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Sprout, Mail, Phone, MapPin } from 'lucide-react';
+import { Sprout, Mail, MapPin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -26,10 +26,6 @@ const Footer = () => {
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-green-500" />
                 <span className="text-gray-300">contact@sraas.com</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-green-500" />
-                <span className="text-gray-300">+91 98765 43210</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4 text-green-500" />

@@ -1,5 +1,5 @@
+import { Clock, Mail, MapPin } from 'lucide-react';
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,14 +7,36 @@ const Contact = () => {
     email: '',
     message: '',
   });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    //const apiEndpoint = 'API_ENDPOINT';
-    
-    alert('Thank you for your message! We will get back to you soon.');
-    setFormData({ name: '', email: '', message: '' });
+    setLoading(true);
+
+    try {
+      // Use FormData directly from the form fields
+      const fd = new FormData();
+      fd.append('name', formData.name);
+      fd.append('email', formData.email);
+      fd.append('message', formData.message);
+
+      const response = await fetch('https://formspree.io/f/movlzqzy', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+        },
+        body: fd,
+      });
+
+      if (response.ok) {
+        alert('Thank you for your message! We will get back to you soon.');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        alert('Sorry, there was an error submitting your message. Please try again later.');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -63,17 +85,6 @@ const Contact = () => {
 
                 <div className="flex items-start space-x-4">
                   <div className="bg-gradient-to-r from-green-900 to-green-700 p-3 rounded-lg">
-                    <Phone className="h-6 w-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">Phone</h3>
-                    <p className="text-gray-600">+91 98765 43210</p>
-                    <p className="text-gray-600">+91 87654 32109</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="bg-gradient-to-r from-green-900 to-green-700 p-3 rounded-lg">
                     <MapPin className="h-6 w-6 text-white" />
                   </div>
                   <div>
@@ -93,14 +104,6 @@ const Contact = () => {
                     <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
                   </div>
                 </div>
-              </div>
-
-              <div className="bg-green-50 p-6 rounded-xl">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Need Immediate Help?</h3>
-                <p className="text-gray-700 mb-4">
-                  For urgent technical issues or emergencies, please call our 24/7 support line:
-                </p>
-                <div className="text-2xl font-bold text-green-700">+91 91234 56789</div>
               </div>
             </div>
 
@@ -159,9 +162,10 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-green-900 to-green-700 text-white py-4 px-6 rounded-lg font-semibold hover:from-green-800 hover:to-green-600 transition-all duration-300 transform hover:scale-105"
+                  className="w-full bg-gradient-to-r from-green-900 to-green-700 text-white py-4 px-6 rounded-lg font-semibold hover:from-green-800 hover:to-green-600 transition-all duration-300 transform hover:scale-105 disabled:opacity-60"
+                  disabled={loading}
                 >
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
 
@@ -184,7 +188,6 @@ const Contact = () => {
               Quick answers to common questions about SRAAS
             </p>
           </div>
-
           <div className="space-y-6">
             {[
               {
@@ -212,32 +215,6 @@ const Contact = () => {
                 <h3 className="text-lg font-bold text-gray-900 mb-3">{faq.question}</h3>
                 <p className="text-gray-700">{faq.answer}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Media Links */}
-      <section className="bg-gradient-to-r from-green-900 to-green-700 text-white py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Follow Us</h2>
-          <p className="text-xl text-green-100 mb-8">
-            Stay updated with the latest news and updates from SRAAS
-          </p>
-          <div className="flex justify-center space-x-6">
-            {[
-              { name: 'Facebook', url: '#' },
-              { name: 'Twitter', url: '#' },
-              { name: 'LinkedIn', url: '#' },
-              { name: 'Instagram', url: '#' },
-            ].map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                className="bg-white/10 hover:bg-white/20 p-3 rounded-lg transition-colors duration-300"
-              >
-                <span className="text-sm font-medium">{social.name}</span>
-              </a>
             ))}
           </div>
         </div>
