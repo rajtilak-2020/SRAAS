@@ -1,0 +1,244 @@
+import { Github, Linkedin, Mail, User } from 'lucide-react';
+
+type TeamMember = {
+  name: string;
+  role: string;
+  bio: string;
+  image: string | null;
+  linkedin?: string;
+  email?: string;
+  github?: string;
+};
+
+const teamMembers: TeamMember[] = [
+  {
+    name: 'Satya Sarthak Manohari',
+    role: 'Project Lead & AI Specialist',
+    bio: 'Leading the development of AI-driven predictive models and system architecture.',
+    image: '/sraaslogo.png',
+    linkedin: '#',
+    email: 'mailto:satya@example.com',
+    github: '#',
+  },
+  {
+    name: 'Gyana Ranjan Sahoo',
+    role: 'Backend Developer & Data Analyst',
+    bio: 'Specializing in data processing systems and backend infrastructure development.',
+    image: '/sraaslogo.png',
+    linkedin: '#',
+    email: 'mailto:gyana@example.com',
+    github: '#',
+  },
+  {
+    name: 'Anshuman Pal',
+    role: 'Frontend Developer & UX Designer',
+    bio: 'Creating intuitive user interfaces and ensuring optimal user experience.',
+    image: '/sraaslogo.png',
+    linkedin: '#',
+    email: 'mailto:anshuman@example.com',
+    github: '#',
+  },
+  {
+    name: 'Suryakanta Sahoo',
+    role: 'IoT Engineer & Systems Integrator',
+    bio: 'Developing IoT solutions and integrating hardware with software systems.',
+    image: '/sraaslogo.png',
+    linkedin: '#',
+    email: 'mailto:suryakanta@example.com',
+    github: '#',
+  },
+  {
+    name: 'K Rajtilak',
+    role: 'Research & Development',
+    bio: 'Conducting agricultural research and developing innovative farming solutions.',
+    image: '/sraaslogo.png',
+    linkedin: '#',
+    email: 'mailto:rajtilak1062020@gmail.com',
+    github: '#',
+  },
+];
+
+const Team = () => {
+  return (
+    <div className="pt-16">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-r from-green-900 to-green-700 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold mb-6">Meet Our Team</h1>
+          <p className="text-xl text-green-100 max-w-3xl mx-auto">
+            The passionate minds behind SRAAS, dedicated to revolutionizing agriculture through technology
+          </p>
+        </div>
+      </section>
+
+      {/* Team Members */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {teamMembers.map((member, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                <div className="relative">
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-64 object-cover"
+                    />
+                  ) : (
+                    <div className="w-full h-64 bg-gradient-to-br from-green-100 to-green-200 flex items-center justify-center">
+                      <div className="bg-gradient-to-r from-green-900 to-green-700 p-6 rounded-full">
+                        <User className="h-16 w-16 text-white" aria-label="Profile placeholder" />
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+                
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                  <p className="text-green-700 font-medium mb-3">{member.role}</p>
+                  <p className="text-gray-600 mb-6">{member.bio}</p>
+                  
+                  <div className="flex space-x-3">
+                    <a
+                      href={member.linkedin || '#'}
+                      aria-label="LinkedIn"
+                      className="bg-blue-100 p-2 rounded-lg hover:bg-blue-200 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Linkedin className="h-5 w-5 text-blue-600" />
+                    </a>
+                    <a
+                      href={member.email || '#'}
+                      aria-label="Email"
+                      className="bg-red-100 p-2 rounded-lg hover:bg-gray-200 transition-colors"
+                    >
+                      <Mail className="h-5 w-5 text-red-600" />
+                    </a>
+                    <a
+                      href={member.github || '#'}
+                      aria-label="GitHub"
+                      className="bg-gray-300 p-2 rounded-lg hover:bg-gray-200 transition-colors"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github className="h-5 w-5 text-black" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Story</h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                SRAAS was born from a shared vision among five passionate technologists who witnessed 
+                the challenges faced by farming communities in rural areas. Coming from diverse 
+                backgrounds in AI, software development, IoT, and agricultural research, we united 
+                with a common goal.
+              </p>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Our team combines deep technical expertise with genuine understanding of agricultural 
+                needs. We've spent countless hours in the field, talking to farmers, understanding 
+                their pain points, and developing solutions that truly make a difference.
+              </p>
+              <p className="text-lg text-gray-700 leading-relaxed">
+                Today, SRAAS represents our commitment to bridging the gap between advanced technology 
+                and traditional farming practices, creating a sustainable future for agriculture.
+              </p>
+            </div>
+            <div className="relative">
+              <img
+                src="https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg"
+                alt="Team collaboration"
+                className="rounded-2xl shadow-xl w-full h-96 object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-green-900/20 to-transparent rounded-2xl"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Values</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The core principles that drive our mission and guide our decisions
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Innovation',
+                description: 'Continuously pushing the boundaries of agricultural technology to create breakthrough solutions.',
+                icon: '🚀',
+              },
+              {
+                title: 'Accessibility',
+                description: 'Making advanced farming technology accessible and affordable for farmers of all scales.',
+                icon: '🤝',
+              },
+              {
+                title: 'Sustainability',
+                description: 'Promoting environmentally responsible farming practices for a sustainable future.',
+                icon: '🌱',
+              },
+              {
+                title: 'Community',
+                description: 'Building strong connections within farming communities to share knowledge and support.',
+                icon: '👥',
+              },
+              {
+                title: 'Quality',
+                description: 'Delivering reliable, accurate, and high-quality solutions that farmers can trust.',
+                icon: '⭐',
+              },
+              {
+                title: 'Impact',
+                description: 'Creating measurable positive impact on farmers\' lives and agricultural productivity.',
+                icon: '📈',
+              },
+            ].map((value, index) => (
+              <div key={index} className="text-center bg-white p-8 rounded-xl shadow-lg">
+                <div className="text-4xl mb-4">{value.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{value.title}</h3>
+                <p className="text-gray-600">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Join Us CTA */}
+      <section className="bg-gradient-to-r from-green-900 to-green-700 text-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold mb-6">Want to Join Our Mission?</h2>
+          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+            We're always looking for talented individuals who share our passion for transforming agriculture.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-green-800 px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition-all duration-300">
+              View Open Positions
+            </button>
+            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition-all duration-300">
+              Contact Us
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Team;
