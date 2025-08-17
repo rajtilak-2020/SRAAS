@@ -45,7 +45,7 @@ const Services = () => {
         'Emergency response guidelines',
         'Community-wide alert distribution'
       ],
-      image: 'https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg',
+      image: 'weatherwarning.jpg',
       color: 'red'
     }
   ];

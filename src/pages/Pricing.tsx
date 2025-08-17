@@ -18,42 +18,59 @@ const Pricing = () => {
       buttonText: 'Get Started',
       buttonStyle: 'border-2 border-green-700 text-green-700 hover:bg-green-50',
     },
+    // {
+    //   name: 'Standard',
+    //   price: '₹199',
+    //   period: '/month',
+    //   description: 'Advanced features for serious farmers',
+    //   features: [
+    //     'All Free features',
+    //     'Soil analysis reports',
+    //     'Personalized farming insights',
+    //     'Weather forecasting (7 days)',
+    //     'Crop recommendation system',
+    //     'Priority support',
+    //     'Data export capabilities',
+    //   ],
+    //   popular: true,
+    //   buttonText: 'Get Started',
+    //   buttonStyle: 'bg-gradient-to-r from-green-900 to-green-700 text-white hover:from-green-800 hover:to-green-600',
+    // },
     {
-      name: 'Standard',
+      name: 'Monthly Premium',
       price: '₹199',
-      period: '/month',
-      description: 'Advanced features for serious farmers',
-      features: [
-        'All Free features',
-        'Soil analysis reports',
-        'Personalized farming insights',
-        'Weather forecasting (7 days)',
-        'Crop recommendation system',
-        'Priority support',
-        'Data export capabilities',
-      ],
-      popular: true,
-      buttonText: 'Get Started',
-      buttonStyle: 'bg-gradient-to-r from-green-900 to-green-700 text-white hover:from-green-800 hover:to-green-600',
-    },
-    {
-      name: 'Premium',
-      price: '₹499',
       period: '/month',
       description: 'Complete solution with early warning systems',
       features: [
-        'All Standard features',
         'Full early warning system',
         'Flood & drought predictions',
         'Pest & locust alerts',
-        'Advanced AI predictions',
+        'Advanced AI features',
         'Priority community support',
         'Custom reporting',
-        'API access',
         '24/7 phone support',
       ],
+      popular: true,
+      buttonText: 'Buy Now',
+      buttonStyle: 'bg-gradient-to-r from-green-900 to-green-700 text-white hover:from-green-800 hover:to-green-600',
+    },
+    {
+      name: 'Yearly Premium',
+      price: '₹2099',
+      period: '/year',
+      description: 'Complete solution with early warning systems',
+      features: [
+        'Full early warning system',
+        'Flood & drought predictions',
+        'Pest & locust alerts',
+        'Advanced AI features',
+        'Priority community support',
+        'Custom reporting',
+        '24/7 phone support',
+        '12% discount compared to monthly plan',
+      ],
       popular: false,
-      buttonText: 'Get Started',
+      buttonText: 'Buy Now',
       buttonStyle: 'bg-gradient-to-r from-green-900 to-green-700 text-white hover:from-green-800 hover:to-green-600',
     },
   ];
@@ -140,24 +157,22 @@ const Pricing = () => {
                   <tr>
                     <th className="py-4 px-6 text-left">Features</th>
                     <th className="py-4 px-6 text-center">Free</th>
-                    <th className="py-4 px-6 text-center">Standard</th>
                     <th className="py-4 px-6 text-center">Premium</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   {[
-                    { feature: 'Weather Updates', free: 'Limited', standard: 'Daily', premium: 'Real-time' },
-                    { feature: 'Soil Analysis', free: '✗', standard: 'Monthly', premium: 'Weekly' },
-                    { feature: 'Alert System', free: 'Basic', standard: 'Enhanced', premium: 'Complete' },
-                    { feature: 'AI Predictions', free: '✗', standard: 'Limited', premium: 'Advanced' },
-                    { feature: 'Support', free: 'Email', standard: 'Priority', premium: '24/7 Phone' },
-                    { feature: 'API Access', free: '✗', standard: '✗', premium: '✓' },
-                    { feature: 'Custom Reports', free: '✗', standard: '✗', premium: '✓' },
+                    { feature: 'Weather Updates', free: 'Limited', premium: 'Real-time' },
+                    { feature: 'Soil Analysis', free: '✗', premium: 'Weekly' },
+                    { feature: 'Alert System', free: 'Basic',premium: 'Complete' },
+                    { feature: 'AI Predictions', free: '✗', premium: 'Advanced' },
+                    { feature: 'Support', free: 'Email', premium: '24/7 Phone' },
+                    { feature: 'API Access', free: '✗', premium: '✓' },
+                    { feature: 'Custom Reports', free: '✗', premium: '✓' },
                   ].map((row, index) => (
                     <tr key={index} className={index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
                       <td className="py-4 px-6 font-medium text-gray-900">{row.feature}</td>
                       <td className="py-4 px-6 text-center text-gray-600">{row.free}</td>
-                      <td className="py-4 px-6 text-center text-gray-600">{row.standard}</td>
                       <td className="py-4 px-6 text-center text-gray-600">{row.premium}</td>
                     </tr>
                   ))}
@@ -186,7 +201,7 @@ const Pricing = () => {
               },
               {
                 question: 'Is there a free trial for paid plans?',
-                answer: 'Yes, we offer a 7-day free trial for both Standard and Premium plans. No credit card required to start.',
+                answer: 'Yes, we offer a 7-day free trial for Premium plans. No credit card required to start.',
               },
               {
                 question: 'What payment methods do you accept?',
