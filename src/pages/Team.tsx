@@ -221,23 +221,7 @@ const Team = () => {
         </div>
       </section>
 
-      {/* Join Us CTA */}
-      <section className="bg-gradient-to-r from-green-900 to-green-700 text-white py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Want to Join Our Mission?</h2>
-          <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
-            We're always looking for talented individuals who share our passion for transforming agriculture.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-green-800 px-8 py-4 rounded-lg font-semibold hover:bg-green-50 transition-all duration-300">
-              View Open Positions
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-green-800 transition-all duration-300">
-              Contact Us
-            </button>
-          </div>
-        </div>
-      </section>
+     
     </div>
   );
 };

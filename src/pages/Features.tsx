@@ -120,10 +120,10 @@ const Features = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
-              { metric: '10,000+', label: 'Farmers Served', icon: Globe },
+              { metric: '0', label: 'Farmers Served', icon: Globe },
               { metric: '25%', label: 'Average Yield Increase', icon: TrendingUp },
-              { metric: '80%', label: 'Reduction in Crop Losses', icon: Shield },
-              { metric: '99.9%', label: 'System Uptime', icon: Zap },
+              { metric: '50%', label: 'Reduction in Crop Losses', icon: Shield },
+              { metric: '95%', label: 'System Uptime', icon: Zap },
             ].map((stat, index) => (
               <div key={index} className="text-center bg-white p-8 rounded-xl shadow-lg">
                 <div className="bg-gradient-to-r from-green-900 to-green-700 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">

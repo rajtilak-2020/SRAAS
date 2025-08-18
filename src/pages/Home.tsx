@@ -62,9 +62,9 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { icon: Users, label: 'Farmers Served', value: '10,000+' },
+              { icon: Users, label: 'Farmers Served', value: '0' },
               { icon: TrendingUp, label: 'Crop Yield Increase', value: '25%' },
-              { icon: Shield, label: 'Disaster Alerts', value: '99.9%' },
+              { icon: Shield, label: 'Disaster Alerts', value: '93%' },
               { icon: Zap, label: 'Response Time', value: '<5min' },
             ].map((stat, index) => (
               <div key={index} className="text-center">

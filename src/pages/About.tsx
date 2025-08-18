@@ -34,7 +34,7 @@ const About = () => {
                   <div className="bg-gradient-to-r from-green-900 to-green-700 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3">
                     <Target className="h-6 w-6 text-white" />
                   </div>
-                  <div className="text-2xl font-bold text-gray-900">98%</div>
+                  <div className="text-2xl font-bold text-gray-900">93%</div>
                   <div className="text-sm text-gray-600">Accuracy Rate</div>
                 </div>
                 <div className="text-center">
